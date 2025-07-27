@@ -1,38 +1,44 @@
 "use client";
 import { gsap } from "gsap";
 import React from "react";
+import { useGSAP } from "@gsap/react";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 // internal imports
-import { ITeamDT } from "@/types/team-d-t";
 import Wrapper from "@/layouts/wrapper";
 import HeaderEleven from "@/layouts/headers/header-eleven";
+import PortfolioDetailsShowcaseTwoArea from "@/components/portfolio/details/portfolio-details-showcase-2-area";
 import FooterTwo from "@/layouts/footers/footer-two";
-import TeamDetailsArea from "@/components/team/team-details-area";
+// animation
+import {charAnimation,titleAnimation} from "@/utils/title-animation";
+import { movingImageSlider } from "@/utils/scroll-marque";
 
-
-// prop type 
-type IProps = {
-  item: ITeamDT;
-}
-
-const TeamDetailsMain = ({item}:IProps) => {
+const PortfolioDetailsShowcaseTwoMain = () => {
   useScrollSmooth();
+
+  useGSAP(() => {
+    const timer = setTimeout(() => {
+      charAnimation();
+      titleAnimation();
+      movingImageSlider();
+    }, 100);
+    return () => clearTimeout(timer);
+  });
 
   return (
     <Wrapper>
       {/* header area start */}
-      <HeaderEleven />
+      <HeaderEleven transparent={true} />
       {/* header area end */}
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            {/* team details area */}
-            <TeamDetailsArea item={item} />
-            {/* team details area */}
+            {/* portfolio details area */}
+            <PortfolioDetailsShowcaseTwoArea />
+            {/* portfolio details area */}
           </main>
 
           {/* footer area */}
@@ -44,4 +50,4 @@ const TeamDetailsMain = ({item}:IProps) => {
   );
 };
 
-export default TeamDetailsMain;
+export default PortfolioDetailsShowcaseTwoMain;
