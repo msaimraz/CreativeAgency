@@ -23,7 +23,7 @@ import { serviceMarqueAnim } from "@/utils/scroll-marque";
 import { panelTwoAnimation } from "@/utils/panel-animation";
 import { hoverBtn } from "@/utils/hover-btn";
 
-const HomeThreeMain = () => {
+const HomeMain = () => {
   useScrollSmooth();
   useEffect(() => {
     document.body.classList.add("tp-smooth-scroll");
@@ -99,4 +99,4 @@ const HomeThreeMain = () => {
   );
 };
 
-export default HomeThreeMain;
+export default HomeMain;

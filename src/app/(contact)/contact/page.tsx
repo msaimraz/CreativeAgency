@@ -1,15 +1,15 @@
 import React from "react";
 import { Metadata } from "next";
-import ContactMain from "@/pages/contact/contact";
+import ContactTwoMain from "@/pages/contact/contact";
 
 export const metadata: Metadata = {
-  title: "Liko - Contact page",
+  title: "Liko - Contact 2 Page",
 };
 
-const ContactPage = () => {
+const ContactTwoPage = () => {
   return (
-    <ContactMain/>
+    <ContactTwoMain/>
   );
 };
 
-export default ContactPage;
+export default ContactTwoPage;
